@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup and Login</title>
+    <link rel="stylesheet" href="SignupStyle.css">
+    <script type="module">
+        
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyDOaqL_jurJJvsDb-WJ6RoqOzPn_105E10",
+          authDomain: "authproj-64206.firebaseapp.com",
+          databaseURL: "https://authproj-64206-default-rtdb.europe-west1.firebasedatabase.app",
+          projectId: "authproj-64206",
+          storageBucket: "authproj-64206.appspot.com",
+          messagingSenderId: "689362015748",
+          appId: "1:689362015748:web:a0c746aceea3549ebec751",
+          measurementId: "G-5ZRLNM7KCD"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        window.signUp = function() {
+          const email = document.getElementById('signup-email').value;
+          const password = document.getElementById('signup-password').value;
+          createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              sendEmailVerification(user)
+                .then(() => {
+                  alert('Verification email sent. Please check your inbox.');
+                })
+                .catch((error) => {
+                  alert(error.message);
+                });
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        };
+
+        window.signIn = function() {
+          const email = document.getElementById('login-email').value;
+          const password = document.getElementById('login-password').value;
+          signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+              const user = userCredential.user;
+              if (user.emailVerified) {
+                window.location.href="loginsuccess.html";
+              } else {
+                alert('Please verify your email first.');
+              }
+            })
+            .catch((error) => {
+              alert(error.message);
+            });
+        };
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const showLoginBtn = document.getElementById('showLoginBtn');
+          const showSignUpBtn = document.getElementById('showSignUpBtn');
+          const loginForm = document.getElementById('loginForm');
+          const signUpForm = document.getElementById('signUpForm');
+
+          showLoginBtn.addEventListener('click', function() {
+              loginForm.style.display = 'block';
+              signUpForm.style.display = 'none';
+          });
+
+          showSignUpBtn.addEventListener('click', function() {
+              signUpForm.style.display = 'block';
+              loginForm.style.display = 'none';
+          });
+      });
+  </script>
+</head>
+<body>
+  <div class="container">
+      <button id="showSignUpBtn">Sign Up</button>
+      <button id="showLoginBtn">Login</button>
+
+      <div id="signUpForm" style="display: none;">
+          <h2>Signup</h2>
+          <input type="email" id="signup-email" placeholder="Email">
+          <input type="password" id="signup-password" placeholder="Password">
+          <button id="sbmtsignup" onclick="signUp()">Sign Up</button>
+      </div>
+
+      <div id="loginForm" style="display: none;">
+          <h2>Login</h2>
+          <input type="email" id="login-email" placeholder="Email">
+          <input type="password" id="login-password" placeholder="Password">
+          <button id="sbmtsignin" onclick="signIn()">Login</button>
+      </div>
+  </div>
+</body>
+</html>

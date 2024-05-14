@@ -1,0 +1,101 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* General button styles */
+button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+#showSignUpBtn {
+    background-color: #E64A19; 
+}
+
+#showSignUpBtn:hover {
+    background-color: #b33b16; 
+}
+
+#showLoginBtn {
+    background-color: #4CAF50; 
+}
+
+#showLoginBtn:hover {
+    background-color: #45a049; 
+}
+#sbmtsignin {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+#sbmtsignin:hover {
+    background-color: #45a049; 
+}
+
+#sbmtsignup {
+    background-color: #FF5722; /* Deep orange for Sign Up */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+#sbmtsignup:hover {
+    background-color: #E64A19; /* Darker orange for Sign Up hover */
+}
+
+input[type=email], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    color: #666;
+    text-align: left;
+    padding: 10px 20px;
+    font-size: 12px;
+}

@@ -1,0 +1,66 @@
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+button {
+    font-size: 16px;
+    padding: 12px 24px;
+    margin: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+#googleloginbtn {
+    background-color: #db4437; 
+}
+
+#facebookloginbtn {
+    background-color: #4267B2;
+}
+
+#messengerButton button {
+    background-color: #00B2FF; 
+}
+
+#signupbtn {
+    background-color: #76196e; 
+}
+
+button[onclick*="signup.html"] {
+    background-color: #6b2458; 
+}
+
+div#messengerButton {
+    margin-top: 20px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    color: #666;
+    text-align: left;
+    padding: 10px 20px;
+    font-size: 12px;
+}
+

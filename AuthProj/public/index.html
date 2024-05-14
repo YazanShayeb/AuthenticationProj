@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authentication Project</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <button id="googleloginbtn">Login with Google</button>
+    <button id="facebookloginbtn">Login with Facebook</button>
+    <button onclick="window.location.href='signup.html';" >Continue with Email and Password</button>
+    <div id="messengerButton"></div>
+
+
+    <!-- JS -->
+    <script type ="module">import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getAuth, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+        
+        const firebaseConfig = {
+          apiKey: "AIzaSyDOaqL_jurJJvsDb-WJ6RoqOzPn_105E10",
+          authDomain: "authproj-64206.firebaseapp.com",
+          projectId: "authproj-64206",
+          storageBucket: "authproj-64206.appspot.com",
+          messagingSenderId: "689362015748",
+          appId: "1:689362015748:web:a0c746aceea3549ebec751",
+          measurementId: "G-5ZRLNM7KCD"
+          };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        auth.languageCode = 'en';
+        const googleprovider = new GoogleAuthProvider();
+        const facebookprovider = new FacebookAuthProvider();
+
+            const googlelogin = document.getElementById("googleloginbtn");
+            googlelogin.addEventListener("click", function(){
+                signInWithPopup(auth, googleprovider)
+                    .then((result) => {
+                        
+                        const credential = GoogleAuthProvider.credentialFromResult(result);
+                        const token = credential.accessToken;
+                        const user = result.user;
+                        console.log(user);
+                        window.location.href="googlelogged.html";
+                    }).catch((error) => { 
+                        console.error("Google login failed:", error);
+             }) });
+             const facebooklogin = document.getElementById("facebookloginbtn");
+            facebooklogin.addEventListener("click", function(){
+                var messengerBtn = document.createElement("button");
+            messengerBtn.innerHTML = "Go to Messenger";
+            messengerBtn.onclick = function () {
+                window.location.href = "https://messenger.com/";
+            };
+            document.getElementById("messengerButton").innerHTML = '';
+            document.getElementById("messengerButton").appendChild(messengerBtn);
+                signInWithPopup(auth, facebookprovider)
+                .then((result) => {
+                    console.log("Facebook login successful, redirecting...");
+              
+                
+                })
+                .catch((error) => {
+                    console.error("Facebook login failed:", error);
+                });
+
+               
+            });
+        </script>
+</body>
+<footer>
+    Developed by: <br>
+    Yazan Shayeb <br>
+    Abdelrahman Saafin
+</footer>
+</html>

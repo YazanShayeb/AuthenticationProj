@@ -1,0 +1,70 @@
+
+    body, html {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f9; 
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        justify-content: center;
+        height: 100vh; 
+        margin: 0; 
+        background: linear-gradient(135deg, #f4f4f9 50%, #e8e8e8 50%);
+    }
+
+    button {
+        color: white; 
+        border: none; 
+        padding: 15px 30px; 
+        margin: 20px; 
+        border-radius: 5px; 
+        font-size: 18px;
+        cursor: pointer; 
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; 
+        box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    }
+
+    button:hover {
+        transform: scale(1.05); 
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    }
+
+    #googleDriveBtn {
+        background-color: #34A853;
+    }
+
+    #googleDriveBtn:hover {
+        background-color: #2C8A43; 
+    }
+
+    #youtubeBtn {
+        background-color: #FF0000; 
+    }
+
+    #youtubeBtn:hover {
+        background-color: #E60000; 
+    }
+
+    #goback {
+        background-color: #0825de; 
+        padding: 10px 20px;
+        font-size: 16px;
+        opacity: 0.85;
+    }
+
+    #goback:hover {
+        background-color: #17218f;
+        opacity: 1;
+    }
+
+    footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: transparent;
+        color: #666;
+        text-align: left;
+        padding: 10px 20px;
+        font-size: 12px;
+        border-top: 1px solid #ddd;
+    }
